@@ -39,7 +39,7 @@ router.get("/cities", async (req, res) => {
 });
 
 // get a city data by name;
-router.get("/cityByName", async (req, res) => {
+router.get("/cityName", async (req, res) => {
   const name = req.query.name;
   const locationByName = await Services.findByName(name);
   res.send(locationByName);

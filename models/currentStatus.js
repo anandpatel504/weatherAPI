@@ -36,19 +36,7 @@ module.exports = class CurrentStatus extends Model {
       created_at: Joi.date(),
     });
   }
-  //   static get relationMappings() {
-  //     const City = require("./city");
-  //     return {
-  //       blogsLikeDislike: {
-  //         relation: Model.BelongsToOneRelation,
-  //         modelClass: City,
-  //         join: {
-  //           from: "current_status.city_id",
-  //           to: "city.id",
-  //         },
-  //       },
-  //     };
-  //   }
+
   $beforeInsert() {
     const now = new Date();
     this.created_at = now;

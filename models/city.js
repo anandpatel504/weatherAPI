@@ -24,8 +24,8 @@ module.exports = class City extends Model {
   static get relationMappings() {
     const CurrentStatus = require("./currentStatus");
     return {
-      crrent_status: {
-        relation: Model.HasManyRelation,
+      current_status: {
+        relation: Model.HasOneRelation,
         modelClass: CurrentStatus,
         join: {
           from: "cities.id",
