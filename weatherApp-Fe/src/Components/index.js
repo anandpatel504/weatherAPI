@@ -21,12 +21,16 @@ class currentWeather extends React.Component {
     series: [],
   };
 
+  componentDidMount() {
+    this.getState("Mumbai");
+  }
+
   getState = (name) => {
     axios
       .get(`http://localhost:2022/cityName?name=${name}`)
       .then((data) => {
         if (data.data.statusCode === 404) {
-          swal("This City is not found!", "", "error");
+          return swal("This City is not found!", "", "error");
         } else {
           var name = data.data[0].name;
           var region = data.data[0].region;
@@ -112,8 +116,6 @@ class currentWeather extends React.Component {
                   options={this.state.options}
                   series={this.state.series}
                   type="bar"
-                  width={500}
-                  height={320}
                 />
               </div>
               {/* </div> */}
